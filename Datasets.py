@@ -137,7 +137,8 @@ def get_dataset(model_config, input_shape, output_shape, partition):
         dsd_train, dsd_test = getMUSDB(model_config["musdb_path"])  # List of (mix, acc, bass, drums, other, vocal) tuples
 
         # Pick 25 random songs for validation from MUSDB train set (this is always the same selection each time since we fix the random seed!)
-        val_idx = np.random.choice(len(dsd_train), size=25, replace=False)
+        val_idx = 30
+        #val_idx = np.random.choice(len(dsd_train), size=25, replace=False)
         train_idx = [i for i in range(len(dsd_train)) if i not in val_idx]
         print("Validation with MUSDB training songs no. " + str(train_idx))
 
